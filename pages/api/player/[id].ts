@@ -26,13 +26,12 @@ export default async function handler(
   const OnevOneSkillPoints = (OnevOnePoints.children[3] as any).children[0]
     .data;
   const OnevOnePosition = (OnevOnePoints.children[5] as any).children[0].data;
-  res
-    .status(200)
-    .json({
-      ...user,
-      ffaSkillPoints,
-      ffaPosition,
-      OnevOneSkillPoints,
-      OnevOnePosition,
-    });
+  const username = user[0].username;
+  res.status(200).json({
+    username,
+    ffaSkillPoints,
+    ffaPosition,
+    OnevOneSkillPoints,
+    OnevOnePosition,
+  });
 }
