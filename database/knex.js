@@ -21,5 +21,19 @@ knexConn.schema.hasTable("users").then(function (exists) {
     });
   }
 });
-
+knexConn.schema.hasTable("stats").then(function (exists) {
+  // logger.info("Looking for users table");
+  if (!exists) {
+    // logger.info("Creating users table");
+    return knexConn.schema.createTable("users", function (t) {
+      t.increments("id").primary();
+      t.string("riskId", 100);
+      t.number("ffaSkillPoints");
+      t.number("ffaPosition");
+      t.number("OnevOneSkillPoints");
+      t.number("OnevOnePosition");
+      t.string("time");
+    });
+  }
+});
 module.exports = knexConn;
