@@ -28,10 +28,10 @@ knexConn.schema.hasTable("stats").then(function (exists) {
     return knexConn.schema.createTable("users", function (t) {
       t.increments("id").primary();
       t.string("riskId", 100);
-      t.number("ffaSkillPoints");
-      t.number("ffaPosition");
-      t.number("OnevOneSkillPoints");
-      t.number("OnevOnePosition");
+      t.integer("ffaSkillPoints");
+      t.integer("ffaPosition");
+      t.integer("OnevOneSkillPoints");
+      t.integer("OnevOnePosition");
       t.string("time");
     });
   }
